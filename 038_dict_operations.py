@@ -41,9 +41,9 @@ print(letter_counts)
 # If you're curious as to why we need to check if the letter is in the
 # dictionary, try uncommenting this code and see what happens:
 
-# letter_counts = {}
-# for letter in text:
-#   letter_counts[letter] = letter_counts[letter] + 1
+#letter_counts = {}
+#for letter in text:
+#letter_counts[letter] = letter_counts[letter] + 1
 
 # In the assignment above, our right hand expression tries to access the value
 # for a key that has not been added yet. This causes an error.
@@ -61,7 +61,13 @@ print("Function: count_words_by_length")
 # Since there are two words of length 3, etc.
 
 def count_words_by_length(words):
-  pass
+  word_lengths = {}
+  for word in words:
+    if len(word) not in word_lengths:
+      word_lengths[len(word)]=1
+    else:
+      word_lengths[len(word)]=word_lengths[len(word)]+1
+  return word_lengths
 
 check_that_these_are_equal(
   count_words_by_length(["hat", "cat", "I", "bird"]),

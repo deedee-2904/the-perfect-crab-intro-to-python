@@ -56,7 +56,8 @@ def print_board(board):
   return grid
 
 def make_move(board, row, column, player):
-  board[row][column] = player
+  if board[row][column] == ".":
+    board[row][column] = player
   return board
 
 
@@ -105,7 +106,13 @@ def is_game_over(board):
       if are_all_cells_the_same(board, group[0], group[1], group[2]):
         return True # We found a winning row!
         # Note that return also stops the function
-  return False # If we get here, we didn't find a winning row
+  # If no empty spots left, it's a draw
+  for row in board:
+    if "." in row:
+      return False  # still moves left
+  return True  # no spaces left = draw
+
+  
 
 # And test it out:
 

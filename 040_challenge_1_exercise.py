@@ -28,7 +28,18 @@ print("")
 print("Function: report_long_words")
 
 def report_long_words(words):
-  pass
+  #filter out words less than 10 letters long - DONE
+  #filter out words with hypens - DONE
+  #limit a word to 15 letters and add an ellipsis - INCOMPLETE
+  
+  filtered_words=[]
+  for word in words:    
+    if len(word)>=10 and "-" not in word:
+      if len(word)>15:
+        word = word[:15]+"..."
+        filtered_words.append(word)
+
+  return "These words are quite long: "+", ".join(filtered_words)
 
 check_that_these_are_equal(
   report_long_words([
